@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crq7pjolfcwjo"
-path="res://.godot/imported/Samurai-Sheet.png-9fafe0db09b8d22317326df13b78dd3d.ctex"
+uid="uid://b4jm0kqowav6d"
+path="res://.godot/imported/ToriiGate.png-02c18ac83f57ab26d366dfb49bada927.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Samurai-Sheet.png"
-dest_files=["res://.godot/imported/Samurai-Sheet.png-9fafe0db09b8d22317326df13b78dd3d.ctex"]
+source_file="res://assets/sprites/ToriiGate.png"
+dest_files=["res://.godot/imported/ToriiGate.png-02c18ac83f57ab26d366dfb49bada927.ctex"]
 
 [params]
 
