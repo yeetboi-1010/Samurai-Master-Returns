@@ -10,4 +10,10 @@ func global_hp_reduction() -> void:
 	
 	#set this for later for the game over screen
 	if current_health <= 0:
-		pass
+		get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
+		
+	else:
+		pass #adust for checkpoints
+
+func reset_health() -> void:
+	current_health = max_health

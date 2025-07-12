@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://u1ikkf47wbjm"]
+
+[ext_resource type="Script" uid="uid://byuuxjjworxlw" path="res://scripts/game_over_screen.gd" id="1_jw6e5"]
+[ext_resource type="FontFile" uid="uid://xi4qw02ujuf7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_wa2qn"]
+[ext_resource type="FontFile" uid="uid://buforasuda0kd" path="res://assets/fonts/PixelOperator8.ttf" id="3_cyfkl"]
+
+[node name="GameOverScreen" type="Node2D"]
+script = ExtResource("1_jw6e5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -41.0
+offset_top = -19.0
+offset_right = 1189.0
+offset_bottom = 682.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 274.0
+offset_top = 33.0
+offset_right = 826.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("2_wa2qn")
+theme_override_font_sizes/font_size = 64
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 97.0
+offset_top = 161.0
+offset_right = 1021.0
+offset_bottom = 368.0
+theme_override_fonts/font = ExtResource("3_cyfkl")
+theme_override_font_sizes/font_size = 32
+text = "You may think you have
+failed in becoming the
+samurai mater.
+But the real failure comes
+from the choice of giving up or not...
+You must continue!"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 250.0
+offset_top = 440.0
+offset_right = 868.0
+offset_bottom = 532.0
+theme_override_fonts/font = ExtResource("3_cyfkl")
+theme_override_font_sizes/font_size = 32
+text = "Press \"R\" to restart.
+Press \"Q\" to quit."
+horizontal_alignment = 1

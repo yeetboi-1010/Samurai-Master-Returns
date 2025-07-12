@@ -58,7 +58,12 @@ position = Vector2(0, -14)
 zoom = Vector2(4, 4)
 limit_bottom = 80
 limit_smoothed = true
-position_smoothing_enabled = true
+
+[node name="HeartsContainer" parent="Player/Camera2D" instance=ExtResource("6_p57ef")]
+offset_left = -144.0
+offset_top = -81.0
+offset_right = -88.0
+offset_bottom = -65.0
 
 [node name="Labels" type="Node" parent="."]
 
@@ -126,11 +131,5 @@ position = Vector2(25, 78)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_p57ef")
-
-[node name="HeartsContainer" parent="." instance=ExtResource("6_p57ef")]
-offset_left = -169.0
-offset_top = -100.0
-offset_right = -113.0
-offset_bottom = -84.0
 
 [connection signal="hp_reduction" from="Killzone" to="Player" method="_on_killzone_hp_reduction"]
