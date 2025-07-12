@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://uijj54p5k7ui"]
+[gd_scene load_steps=11 format=3 uid="uid://uijj54p5k7ui"]
 
 [ext_resource type="PackedScene" uid="uid://c76w3c7c1v8wn" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://b4jm0kqowav6d" path="res://assets/sprites/ToriiGate.png" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://c3jkpwyeeek0n" path="res://assets/sprites/StarterTiles-Sheet.png" id="2_yqjtg"]
 [ext_resource type="FontFile" uid="uid://xi4qw02ujuf7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://lj3djtbh1o26" path="res://scenes/killzone.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://0rq0lo7iw6v1" path="res://scenes/hearts_container.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -120,3 +121,11 @@ position = Vector2(25, 78)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_p57ef")
+
+[node name="HeartsContainer" parent="." instance=ExtResource("6_p57ef")]
+offset_left = -169.0
+offset_top = -100.0
+offset_right = -113.0
+offset_bottom = -84.0
+
+[connection signal="hp_reduction" from="Killzone" to="Player" method="_on_killzone_hp_reduction"]

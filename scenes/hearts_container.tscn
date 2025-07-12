@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://0rq0lo7iw6v1"]
+
+[ext_resource type="PackedScene" uid="uid://d0pv24pnb817h" path="res://scenes/heart_health.tscn" id="1_ie7yt"]
+
+[node name="HeartsContainer" type="HBoxContainer"]
+layout_direction = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="HeartHealth" parent="." instance=ExtResource("1_ie7yt")]
+layout_mode = 2
+
+[node name="HeartHealth2" parent="." instance=ExtResource("1_ie7yt")]
+layout_mode = 2
+
+[node name="HeartHealth3" parent="." instance=ExtResource("1_ie7yt")]
+layout_mode = 2

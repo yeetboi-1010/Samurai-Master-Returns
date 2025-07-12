@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0pv24pnb817h"]
+
+[ext_resource type="Texture2D" uid="uid://ceedspeex6ta3" path="res://assets/sprites/HealthSprites/Heart-Sheet.png" id="1_iy8vh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fb0a"]
+atlas = ExtResource("1_iy8vh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5gox"]
+atlas = ExtResource("1_iy8vh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jxo0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fb0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5gox")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.5
+}]
+
+[node name="HeartHealth" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="HeartHealth" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3jxo0")
+autoplay = "default"
+centered = false
