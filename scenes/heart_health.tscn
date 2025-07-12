@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0pv24pnb817h"]
+[gd_scene load_steps=6 format=3 uid="uid://d0pv24pnb817h"]
 
+[ext_resource type="Script" uid="uid://owvocc0ceigp" path="res://scripts/heart_health.gd" id="1_2fb0a"]
 [ext_resource type="Texture2D" uid="uid://ceedspeex6ta3" path="res://assets/sprites/HealthSprites/Heart-Sheet.png" id="1_iy8vh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fb0a"]
@@ -28,6 +29,7 @@ animations = [{
 custom_minimum_size = Vector2(16, 16)
 offset_right = 16.0
 offset_bottom = 16.0
+script = ExtResource("1_2fb0a")
 
 [node name="HeartHealth" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3jxo0")
