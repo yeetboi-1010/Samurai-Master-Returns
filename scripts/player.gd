@@ -5,7 +5,7 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var timer: Timer = $Timer
+@onready var swords_hitbox: CollisionShape2D = $SwordHitbox/SwordsHitbox
 
 var attack_ready = true
 
@@ -33,8 +33,10 @@ func _physics_process(delta: float) -> void:
 	
 	if direction > 0:
 		animated_sprite.flip_h = false
+		swords_hitbox.scale.x = 1
 	elif direction < 0:
 		animated_sprite.flip_h = true
+		swords_hitbox.scale.x = -1
 	
 	if direction:
 		velocity.x = direction * SPEED
@@ -46,3 +48,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_attack_triggered():
 	$AnimatedSprite2D.play("attack")
+	swords_hitbox.disabled = false
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation == "attack":
+		$AnimatedSprite2D.play("idle")
+		swords_hitbox.disabled = true

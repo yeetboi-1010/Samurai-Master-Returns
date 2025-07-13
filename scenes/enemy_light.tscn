@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://lhpayhus3jd"]
+
+[ext_resource type="Texture2D" uid="uid://bwopf3vwm7x8i" path="res://assets/sprites/EnemyLight-Sheet.png" id="1_1ikvh"]
+[ext_resource type="PackedScene" uid="uid://lj3djtbh1o26" path="res://scenes/killzone.tscn" id="2_hprp4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt67s"]
+atlas = ExtResource("1_1ikvh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnm2e"]
+atlas = ExtResource("1_1ikvh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6f24g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt67s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnm2e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5mfs2"]
+radius = 13.1529
+
+[node name="EnemyLight" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_6f24g")
+autoplay = "default"
+
+[node name="Killzone" parent="." instance=ExtResource("2_hprp4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_5mfs2")
