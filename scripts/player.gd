@@ -5,7 +5,14 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var timer: Timer = $Timer
 
+var attack_ready = true
+
+signal attack_triggered
+
+func _ready():
+	self.connect("attack_triggered", Callable(self, "_on_attack_triggered"))
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -15,7 +22,11 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
+	#Handle attack initial
+	if Input.is_action_just_pressed("Attack") and attack_ready:
+		emit_signal("attack_triggered")
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("move_left", "move_right")
@@ -32,3 +43,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
+
+func _on_attack_triggered():
+	$AnimatedSprite2D.play("attack")
