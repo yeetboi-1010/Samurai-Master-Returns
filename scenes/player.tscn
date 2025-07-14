@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://c76w3c7c1v8wn"]
+[gd_scene load_steps=32 format=3 uid="uid://c76w3c7c1v8wn"]
 
 [ext_resource type="Script" uid="uid://c0o1460jw0eql" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://gwo7uet6cwmm" path="res://assets/sprites/Samurai/SamuraiNewIdle/SamuraiIdleRevised-Sheet.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://crq7pjolfcwjo" path="res://assets/sprites/Samurai/SamuraiOriginal/Samurai-Sheet.png" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cogbf7ysybgpa" path="res://assets/sprites/Samurai/SamuraiNewMove/SamuraiRun-Sheet.png" id="4_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://cegbgosc71ctp" path="res://assets/sprites/Samurai/SamuraiNewAttack/SamuraiRevisedAttack-Sheet.png" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://dqmp5doxyrdf7" path="res://scripts/sword_hitbox.gd" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("5_qlg0r")
@@ -179,7 +180,7 @@ radius = 5.0
 height = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
-size = Vector2(9, 10)
+size = Vector2(14, 10)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
@@ -201,9 +202,13 @@ position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_qlg0r")
 
 [node name="SwordHitbox" type="Area2D" parent="."]
+monitorable = false
+script = ExtResource("6_tuyoq")
 
 [node name="SwordsHitbox" type="CollisionShape2D" parent="SwordHitbox"]
-position = Vector2(11.5, -12)
+position = Vector2(14, -12)
 shape = SubResource("RectangleShape2D_qlg0r")
+disabled = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_area_entered"]

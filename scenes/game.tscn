@@ -136,7 +136,7 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="EnemyLight" parent="Enemies" instance=ExtResource("8_gee14")]
+[node name="EnemyLight" parent="Enemies" groups=["Enemies"] instance=ExtResource("8_gee14")]
 position = Vector2(793, -34)
 
 [node name="Checkpoints" type="Node" parent="."]

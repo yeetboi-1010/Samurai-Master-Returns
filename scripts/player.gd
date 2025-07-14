@@ -9,6 +9,9 @@ const JUMP_VELOCITY = -300.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var swords_hitbox: CollisionShape2D = $SwordHitbox/SwordsHitbox
 
+@onready var sword_hitbox: Area2D = $SwordHitbox
+
+
 var attack_ready = true
 
 signal attack_triggered
@@ -52,6 +55,16 @@ func _physics_process(delta: float) -> void:
 func _on_attack_triggered():
 	$AnimatedSprite2D.play("attack")
 	swords_hitbox.disabled = false
+	
+	await get_tree().physics_frame
+	
+	var overlapping_objects = sword_hitbox.get_overlapping_areas()
+	
+	for area in overlapping_objects:
+		var parent = area.get_parent()
+		if parent.is_in_group("Enemies"):
+			parent.queue_free()
+		#adjusted to only work if the hitbox detects an enemy in the group Enemies
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
