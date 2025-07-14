@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
@@ -13,6 +15,7 @@ signal attack_triggered
 
 func _ready():
 	self.connect("attack_triggered", Callable(self, "_on_attack_triggered"))
+	Global.player_check = self
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://uijj54p5k7ui"]
+[gd_scene load_steps=14 format=3 uid="uid://uijj54p5k7ui"]
 
 [ext_resource type="Script" uid="uid://cgjb34utg6gtk" path="res://scripts/game_manager.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c76w3c7c1v8wn" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lj3djtbh1o26" path="res://scenes/killzone.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://0rq0lo7iw6v1" path="res://scenes/hearts_container.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://lhpayhus3jd" path="res://scenes/enemy_light.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://sr3j18abqqfr" path="res://scenes/checkpoint.tscn" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -137,5 +138,13 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 
 [node name="EnemyLight" parent="Enemies" instance=ExtResource("8_gee14")]
 position = Vector2(793, -34)
+
+[node name="Checkpoints" type="Node" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("9_0tnpc")]
+position = Vector2(39, 1)
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("9_0tnpc")]
+position = Vector2(674, -32)
 
 [connection signal="hp_reduction" from="Killzone" to="Player" method="_on_killzone_hp_reduction"]
