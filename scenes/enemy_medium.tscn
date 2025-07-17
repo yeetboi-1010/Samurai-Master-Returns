@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0rsta2lssbgg"]
+
+[ext_resource type="Texture2D" uid="uid://dsu0or4n6r7c4" path="res://assets/sprites/Enemies/EnemyMedium/EnemyMedium-Sheet.png" id="1_d46ww"]
+[ext_resource type="Script" uid="uid://duccf4x4d6vd7" path="res://scripts/enemy_medium.gd" id="1_esv1q"]
+[ext_resource type="PackedScene" uid="uid://lj3djtbh1o26" path="res://scenes/killzone.tscn" id="2_esv1q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sv3w"]
+atlas = ExtResource("1_d46ww")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbkgn"]
+atlas = ExtResource("1_d46ww")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esv1q"]
+atlas = ExtResource("1_d46ww")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix416"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sv3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbkgn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esv1q")
+}],
+"loop": false,
+"name": &"took_damage",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fo874"]
+radius = 15.0333
+
+[node name="EnemyMedium" type="Node2D"]
+script = ExtResource("1_esv1q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ix416")
+autoplay = "default"
+
+[node name="Killzone" parent="." instance=ExtResource("2_esv1q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CircleShape2D_fo874")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(23, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-23, 0)
