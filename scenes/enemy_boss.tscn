@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck8sj1r8bu62i"]
+[gd_scene load_steps=9 format=3 uid="uid://ck8sj1r8bu62i"]
 
 [ext_resource type="Texture2D" uid="uid://cvipi5yyrcmnu" path="res://assets/sprites/Enemies/EnemyHeavy/EnemyHeavy-Sheet.png" id="1_5xr4n"]
+[ext_resource type="Script" uid="uid://dggyg5yfybhrv" path="res://scripts/enemy_boss.gd" id="1_xu5hf"]
+[ext_resource type="PackedScene" uid="uid://lj3djtbh1o26" path="res://scenes/killzone.tscn" id="3_lq6pu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xu5hf"]
 atlas = ExtResource("1_5xr4n")
@@ -24,9 +26,40 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lq6pu"]
+a = Vector2(-151, 0)
+b = Vector2(160, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdlgx"]
+size = Vector2(30, 125)
+
 [node name="EnemyBoss" type="Node2D"]
+script = ExtResource("1_xu5hf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bdlgx")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Trigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(0, -209)
+shape = SubResource("SegmentShape2D_lq6pu")
+
+[node name="BossAttackable" type="Timer" parent="."]
+one_shot = true
+
+[node name="Killzone" parent="." instance=ExtResource("3_lq6pu")]
+
+[node name="danger" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_bdlgx")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Trigger" to="." method="_on_trigger_area_entered"]
+[connection signal="timeout" from="BossAttackable" to="." method="_on_boss_attackable_timeout"]

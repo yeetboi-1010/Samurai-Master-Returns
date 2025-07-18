@@ -79,6 +79,9 @@ func _on_attack_triggered():
 		
 		elif parent.is_in_group("Enemies2"):
 			parent.enemy_medium_take_damage(1)
+		
+		elif parent.is_in_group("Enemies3"):
+			parent.enemy_boss_take_damage(1)
 		#adjusted to only work if the hitbox detects an enemy in the group Enemies
 
 
