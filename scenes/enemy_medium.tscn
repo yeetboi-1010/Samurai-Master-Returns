@@ -46,6 +46,7 @@ script = ExtResource("1_esv1q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ix416")
+animation = &"took_damage"
 autoplay = "default"
 
 [node name="Killzone" parent="." instance=ExtResource("2_esv1q")]

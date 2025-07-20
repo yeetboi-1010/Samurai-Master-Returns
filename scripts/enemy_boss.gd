@@ -5,10 +5,11 @@ extends Node2D
 @onready var boss_attackable: Timer = $BossAttackable
 @onready var danger: CollisionShape2D = $Killzone/danger
 @onready var collision_shape_2d: CollisionShape2D = $Trigger/CollisionShape2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var trigger: Area2D = $Trigger
 
-var enemy_boss_hp: int = 25
+var enemy_boss_hp: int = 15
 
 
 
@@ -20,7 +21,10 @@ func _ready() -> void:
 
 func enemy_boss_take_damage(amount: int):
 	enemy_boss_hp -= amount
-	print(amount)
+	animated_sprite_2d.play("hurt")
+	await animated_sprite_2d.animation_finished
+	animated_sprite_2d.play("idle")
+	print(enemy_boss_hp)
 	if enemy_boss_hp <= 0:
 		queue_free()
 
@@ -39,4 +43,4 @@ func _on_timer_timeout() -> void: #2
 
 func _on_boss_attackable_timeout() -> void: #3
 	danger.disabled = false
-	
+	animation_player.play("idle_boss_anim")

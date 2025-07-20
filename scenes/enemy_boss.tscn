@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck8sj1r8bu62i"]
+[gd_scene load_steps=10 format=3 uid="uid://ck8sj1r8bu62i"]
 
 [ext_resource type="Texture2D" uid="uid://cvipi5yyrcmnu" path="res://assets/sprites/Enemies/EnemyHeavy/EnemyHeavy-Sheet.png" id="1_5xr4n"]
 [ext_resource type="Script" uid="uid://dggyg5yfybhrv" path="res://scripts/enemy_boss.gd" id="1_xu5hf"]
 [ext_resource type="PackedScene" uid="uid://lj3djtbh1o26" path="res://scenes/killzone.tscn" id="3_lq6pu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdlgx"]
+atlas = ExtResource("1_5xr4n")
+region = Rect2(768, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xu5hf"]
 atlas = ExtResource("1_5xr4n")
@@ -14,6 +18,14 @@ region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bdlgx"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdlgx")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 3.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xu5hf")
@@ -31,7 +43,7 @@ a = Vector2(-151, 0)
 b = Vector2(160, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdlgx"]
-size = Vector2(30, 113)
+size = Vector2(30, 110)
 
 [node name="EnemyBoss" type="Node2D"]
 script = ExtResource("1_xu5hf")
@@ -57,7 +69,7 @@ one_shot = true
 [node name="Killzone" parent="." instance=ExtResource("3_lq6pu")]
 
 [node name="danger" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, -5.5)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_bdlgx")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
