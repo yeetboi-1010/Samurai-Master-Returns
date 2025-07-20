@@ -10,7 +10,7 @@ extends Node2D
 
 var enemy_boss_hp: int = 25
 
-signal attackable_boss_signal
+
 
 func _ready() -> void:
 	danger.disabled = true
@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func enemy_boss_take_damage(amount: int):
 	enemy_boss_hp -= amount
+	print(amount)
 	if enemy_boss_hp <= 0:
 		queue_free()
 
@@ -31,9 +32,11 @@ func _on_trigger_area_entered(area: Area2D) -> void: #1
 func _on_timer_timeout() -> void: #2
 	collision_shape_2d.disabled = true
 	animation_player.play("enter_animation")
+	await animation_player.animation_finished
 	boss_attackable.start()
+
+
 
 func _on_boss_attackable_timeout() -> void: #3
 	danger.disabled = false
-	emit_signal("attackable_boss_signal")
-	connect("attackable_boss_signal", _on_trigger_area_entered)
+	
