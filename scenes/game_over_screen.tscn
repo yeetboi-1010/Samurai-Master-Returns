@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://u1ikkf47wbjm"]
+[gd_scene load_steps=5 format=3 uid="uid://u1ikkf47wbjm"]
 
 [ext_resource type="Script" uid="uid://byuuxjjworxlw" path="res://scripts/game_over_screen.gd" id="1_jw6e5"]
 [ext_resource type="FontFile" uid="uid://xi4qw02ujuf7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_wa2qn"]
 [ext_resource type="FontFile" uid="uid://buforasuda0kd" path="res://assets/fonts/PixelOperator8.ttf" id="3_cyfkl"]
+[ext_resource type="AudioStream" uid="uid://b0ma7fd4p7jm" path="res://assets/sound/SFX/GameOverSamurai.wav" id="4_wa2qn"]
 
 [node name="GameOverScreen" type="Node2D"]
 script = ExtResource("1_jw6e5")
@@ -49,3 +50,8 @@ theme_override_font_sizes/font_size = 32
 text = "Press \"R\" to restart.
 Press \"Q\" to quit."
 horizontal_alignment = 1
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wa2qn")
+autoplay = true
+bus = &"GameOver"

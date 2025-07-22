@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c76w3c7c1v8wn"]
+[gd_scene load_steps=34 format=3 uid="uid://c76w3c7c1v8wn"]
 
 [ext_resource type="Script" uid="uid://c0o1460jw0eql" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://gwo7uet6cwmm" path="res://assets/sprites/Samurai/SamuraiNewIdle/SamuraiIdleRevised-Sheet.png" id="2_dqkch"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cogbf7ysybgpa" path="res://assets/sprites/Samurai/SamuraiNewMove/SamuraiRun-Sheet.png" id="4_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://cegbgosc71ctp" path="res://assets/sprites/Samurai/SamuraiNewAttack/SamuraiRevisedAttack-Sheet.png" id="5_qlg0r"]
 [ext_resource type="Script" uid="uid://dqmp5doxyrdf7" path="res://scripts/sword_hitbox.gd" id="6_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://cr0ahgcp2guoo" path="res://assets/sound/SFX/SamuraiJump.wav" id="7_fjrip"]
+[ext_resource type="AudioStream" uid="uid://8wq16m2rqnqt" path="res://assets/sound/SFX/SamuraiAttack.wav" id="8_smehm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("5_qlg0r")
@@ -213,6 +215,14 @@ disabled = true
 [node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_fjrip")
+bus = &"SFX"
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_smehm")
+bus = &"SFX"
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_area_entered"]

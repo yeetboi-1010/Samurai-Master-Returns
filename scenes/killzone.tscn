@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://lj3djtbh1o26"]
+[gd_scene load_steps=3 format=3 uid="uid://lj3djtbh1o26"]
 
 [ext_resource type="Script" uid="uid://berhgjoqwtn0f" path="res://scripts/killzone.gd" id="1_xlapc"]
+[ext_resource type="AudioStream" uid="uid://c13n2sigvb0ai" path="res://assets/sound/SFX/SamuraiRespawn.wav" id="2_kl8fp"]
 
 [node name="Killzone" type="Area2D"]
 script = ExtResource("1_xlapc")
+
+[node name="RespawnSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kl8fp")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="hp_reduction" from="." to="." method="_on_hp_reduction"]

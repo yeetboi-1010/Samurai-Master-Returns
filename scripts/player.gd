@@ -10,6 +10,8 @@ const JUMP_VELOCITY = -300.0
 @onready var swords_hitbox: CollisionShape2D = $SwordHitbox/SwordsHitbox
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var sword_hitbox: Area2D = $SwordHitbox
+@onready var jump_sound: AudioStreamPlayer2D = $JumpSound
+@onready var attack_sound: AudioStreamPlayer2D = $AttackSound
 
 
 var attack_ready = true
@@ -30,6 +32,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor() || can_coyote_jump:
 			velocity.y = JUMP_VELOCITY
+			
+			jump_sound.play()
+			
 			if can_coyote_jump:
 				can_coyote_jump = false
 				print("Coyote Jump")
@@ -66,6 +71,7 @@ func _on_coyote_timer_timeout() -> void:
 
 func _on_attack_triggered():
 	$AnimatedSprite2D.play("attack")
+	attack_sound.play()
 	swords_hitbox.disabled = false
 	
 	await get_tree().physics_frame

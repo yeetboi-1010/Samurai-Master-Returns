@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://brf7n2t0qfxne"]
+[gd_scene load_steps=8 format=3 uid="uid://brf7n2t0qfxne"]
 
 [ext_resource type="Script" uid="uid://cl1e75tsqg3ml" path="res://scripts/end_screen.gd" id="1_jc7ji"]
 [ext_resource type="FontFile" uid="uid://buforasuda0kd" path="res://assets/fonts/PixelOperator8.ttf" id="1_kq7ac"]
 [ext_resource type="FontFile" uid="uid://xi4qw02ujuf7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_87vmq"]
 [ext_resource type="Texture2D" uid="uid://cegbgosc71ctp" path="res://assets/sprites/Samurai/SamuraiNewAttack/SamuraiRevisedAttack-Sheet.png" id="4_87vmq"]
+[ext_resource type="AudioStream" uid="uid://dl8cs5bjb2mbj" path="res://assets/sound/SFX/SamuraiWinScreen.wav" id="5_g44xs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g44xs"]
 atlas = ExtResource("4_87vmq")
@@ -101,9 +102,26 @@ text = "-yeet_boi_1010"
 horizontal_alignment = 1
 autowrap_mode = 1
 
+[node name="Label6" type="Label" parent="."]
+visible = false
+offset_left = 40.0
+offset_top = 535.0
+offset_right = 396.0
+offset_bottom = 634.0
+theme_override_fonts/font = ExtResource("1_kq7ac")
+theme_override_font_sizes/font_size = 32
+text = "'R' to restart
+'Q' to quit"
+horizontal_alignment = 1
+autowrap_mode = 1
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(489, 578)
 rotation = -0.209536
 scale = Vector2(3.42393, 3.42393)
 sprite_frames = SubResource("SpriteFrames_vj8vg")
+
+[node name="EndScreenMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_g44xs")
+bus = &"GameOver"
