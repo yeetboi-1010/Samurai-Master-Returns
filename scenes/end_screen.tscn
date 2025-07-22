@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://brf7n2t0qfxne"]
+
+[ext_resource type="Script" uid="uid://cl1e75tsqg3ml" path="res://scripts/end_screen.gd" id="1_jc7ji"]
+[ext_resource type="FontFile" uid="uid://buforasuda0kd" path="res://assets/fonts/PixelOperator8.ttf" id="1_kq7ac"]
+[ext_resource type="FontFile" uid="uid://xi4qw02ujuf7" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_87vmq"]
+[ext_resource type="Texture2D" uid="uid://cegbgosc71ctp" path="res://assets/sprites/Samurai/SamuraiNewAttack/SamuraiRevisedAttack-Sheet.png" id="4_87vmq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g44xs"]
+atlas = ExtResource("4_87vmq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vj8vg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g44xs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EndScreen" type="Node2D"]
+script = ExtResource("1_jc7ji")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -39.0
+offset_top = -14.0
+offset_right = 1196.0
+offset_bottom = 702.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_top = 14.0
+offset_right = 1152.0
+offset_bottom = 396.0
+theme_override_fonts/font = ExtResource("1_kq7ac")
+theme_override_font_sizes/font_size = 32
+text = "Phew! Are you alright?!
+
+That was a lot that happened there...
+
+But you did it.
+
+You really came through.
+
+You have proven yourself that you are...
+
+and will always be..."
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_top = 568.0
+offset_right = 1152.0
+offset_bottom = 600.0
+theme_override_fonts/font = ExtResource("1_kq7ac")
+theme_override_font_sizes/font_size = 32
+text = "['x' to continue]"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_top = 484.0
+offset_right = 1152.0
+offset_bottom = 548.0
+theme_override_fonts/font = ExtResource("3_87vmq")
+theme_override_font_sizes/font_size = 64
+text = "THE SAMURAI MASTER"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Label4" type="Label" parent="."]
+visible = false
+offset_top = 38.0
+offset_right = 1152.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("1_kq7ac")
+theme_override_font_sizes/font_size = 48
+text = "Thanks for playing! :)
+This game was a lot of fun to
+make, and I really enjoyed
+making it! I hope you enjoyed
+playing, and while this is one
+of my first projects, this is
+only the beginning, and
+there's definitely more to
+come! Cheers!"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Label5" type="Label" parent="."]
+visible = false
+offset_left = 456.0
+offset_top = 569.0
+offset_right = 1232.0
+offset_bottom = 633.0
+theme_override_fonts/font = ExtResource("1_kq7ac")
+theme_override_font_sizes/font_size = 48
+text = "-yeet_boi_1010"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(489, 578)
+rotation = -0.209536
+scale = Vector2(3.42393, 3.42393)
+sprite_frames = SubResource("SpriteFrames_vj8vg")

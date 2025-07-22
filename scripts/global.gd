@@ -30,3 +30,6 @@ func global_hp_reduction() -> void:
 
 func reset_health() -> void:
 	current_health = max_health
+
+func on_boss_defeated():
+	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")

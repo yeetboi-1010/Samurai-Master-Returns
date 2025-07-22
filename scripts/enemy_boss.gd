@@ -9,13 +9,14 @@ extends Node2D
 
 @onready var trigger: Area2D = $Trigger
 
-var enemy_boss_hp: int = 15
+var enemy_boss_hp: int = 10
 
-
+signal boss_defeated
 
 func _ready() -> void:
 	danger.disabled = true
 	collision_shape_2d.disabled = false
+	connect("boss_defeated", Global.on_boss_defeated)
 
 
 
@@ -26,7 +27,10 @@ func enemy_boss_take_damage(amount: int):
 	animated_sprite_2d.play("idle")
 	print(enemy_boss_hp)
 	if enemy_boss_hp <= 0:
-		queue_free()
+		danger.disabled = true
+		animation_player.play("boss_defeat")
+		await animation_player.animation_finished
+		emit_signal("boss_defeated")
 
 func _on_trigger_area_entered(area: Area2D) -> void: #1
 	if area.get_parent() is Player:

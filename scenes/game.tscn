@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://uijj54p5k7ui"]
+[gd_scene load_steps=22 format=3 uid="uid://uijj54p5k7ui"]
 
 [ext_resource type="Script" uid="uid://cgjb34utg6gtk" path="res://scripts/game_manager.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://c76w3c7c1v8wn" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -55,6 +55,22 @@ tracks/0/keys = {
 "values": [Vector2(6047, 69)]
 }
 
+[sub_resource type="Animation" id="Animation_kvuet"]
+resource_name = "boss_defeat"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6055, -95), Vector2(6050, -95), Vector2(6056, -96), Vector2(6050, -95), Vector2(6055, -96), Vector2(6050, -96), Vector2(6055, -95), Vector2(6050, -95), Vector2(6056, -96), Vector2(6050, -95), Vector2(6055, -96), Vector2(6050, -96), Vector2(6055, -95), Vector2(6050, -95), Vector2(6056, -96), Vector2(6050, -95), Vector2(6055, -96), Vector2(6050, -96), Vector2(6055, -95), Vector2(6050, -95), Vector2(6056, -96), Vector2(6050, -95), Vector2(6055, -96), Vector2(6050, -96), Vector2(6055, -95), Vector2(6050, -95), Vector2(6056, -96), Vector2(6050, -95), Vector2(6055, -96), Vector2(6050, -96), Vector2(6055, -95), Vector2(6050, -95), Vector2(6056, -96), Vector2(6050, -95), Vector2(6055, -96), Vector2(6050, -96), Vector2(6055, -95), Vector2(6050, -95), Vector2(6056, -96), Vector2(6050, -95), Vector2(6055, -96), Vector2(6050, -96), Vector2(6055, -95), Vector2(6050, -95), Vector2(6056, -96), Vector2(6050, -95), Vector2(6055, -96), Vector2(6050, -96), Vector2(6055, -95), Vector2(6059, 16), Vector2(6059, 16)]
+}
+
 [sub_resource type="Animation" id="Animation_trtic"]
 resource_name = "enter_animation"
 length = 5.0
@@ -91,6 +107,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ca42v"]
 _data = {
 &"RESET": SubResource("Animation_ir15t"),
+&"boss_defeat": SubResource("Animation_kvuet"),
 &"enter_animation": SubResource("Animation_trtic"),
 &"idle_boss_anim": SubResource("Animation_dinhu")
 }
@@ -114,7 +131,7 @@ layer_2/tile_data = PackedInt32Array(65534, 131072, 0, 65535, 131072, 0, 0, 1310
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_uwrxv")]
 z_index = 1
-position = Vector2(5938, -435)
+position = Vector2(40, -7)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -14)
@@ -362,7 +379,7 @@ position = Vector2(4689, -176)
 [node name="Checkpoints" type="Node" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("9_0tnpc")]
-position = Vector2(39, 1)
+position = Vector2(40, 0)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("9_0tnpc")]
 position = Vector2(674, -32)
