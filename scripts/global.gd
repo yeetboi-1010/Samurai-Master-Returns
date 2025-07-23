@@ -3,7 +3,7 @@ extends Node
 @export var max_health: int = 3
 @onready var current_health: int = max_health
 
-
+var hearts_container: HBoxContainer #no default value
 var current_checkpoint : Checkpoint
 
 #alternate name for thingy idk
@@ -25,8 +25,10 @@ func global_hp_reduction() -> void:
 	if current_health <= 0:
 		get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
 		
+		
 	else:
 		Global.respawn_player()
+		hearts_container.show_current_hearts(current_health)
 
 func reset_health() -> void:
 	current_health = max_health

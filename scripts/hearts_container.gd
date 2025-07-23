@@ -2,7 +2,7 @@ extends HBoxContainer
 
 
 func _ready() -> void:
-	pass
+	Global.hearts_container = self #gives a global reference to me
 
 var heartsUI = preload("res://scenes/heart_health.tscn")
 # Called when the node enters the scene tree for the first time.

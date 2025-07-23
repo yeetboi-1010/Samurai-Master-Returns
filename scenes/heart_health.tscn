@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0pv24pnb817h"]
+[gd_scene load_steps=8 format=3 uid="uid://d0pv24pnb817h"]
 
 [ext_resource type="Script" uid="uid://owvocc0ceigp" path="res://scripts/heart_health.gd" id="1_2fb0a"]
 [ext_resource type="Texture2D" uid="uid://ceedspeex6ta3" path="res://assets/sprites/HealthSprites/Heart-Sheet.png" id="1_iy8vh"]
+[ext_resource type="Texture2D" uid="uid://c4l0803qmp5vm" path="res://assets/sprites/HealthSprites/Heart_gone.png" id="3_v5gox"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fb0a"]
 atlas = ExtResource("1_iy8vh")
@@ -10,6 +11,10 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5gox"]
 atlas = ExtResource("1_iy8vh")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jxo0"]
+atlas = ExtResource("3_v5gox")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3jxo0"]
 animations = [{
@@ -23,6 +28,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jxo0")
+}],
+"loop": true,
+"name": &"heart_gone",
+"speed": 5.0
 }]
 
 [node name="HeartHealth" type="Panel"]
@@ -33,5 +46,6 @@ script = ExtResource("1_2fb0a")
 
 [node name="HeartHealth" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3jxo0")
+animation = &"heart_gone"
 autoplay = "default"
 centered = false

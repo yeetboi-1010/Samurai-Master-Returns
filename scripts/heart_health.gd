@@ -11,3 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func update_hearts(full: bool):
+	if full: heart_health.play("default")
+	else: heart_health.play("heart_gone")
