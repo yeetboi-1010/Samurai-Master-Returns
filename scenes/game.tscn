@@ -142,10 +142,10 @@ limit_bottom = 80
 limit_smoothed = true
 
 [node name="HeartsContainer" parent="Player/Camera2D" instance=ExtResource("6_p57ef")]
-offset_left = -144.0
-offset_top = -81.0
-offset_right = -88.0
-offset_bottom = -65.0
+offset_left = -79.0
+offset_top = -59.0
+offset_right = -23.0
+offset_bottom = -43.0
 
 [node name="Labels" type="Node" parent="."]
 
