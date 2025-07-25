@@ -151,9 +151,9 @@ offset_bottom = -65.0
 
 [node name="Label" type="Label" parent="Labels"]
 offset_left = -92.0
-offset_top = -101.0
+offset_top = -97.0
 offset_right = 182.0
-offset_bottom = -66.0
+offset_bottom = -62.0
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 8
 text = "WELCOME TO SAMURAI
@@ -161,22 +161,24 @@ MASTER RETURNS..."
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="Labels"]
-offset_left = -155.0
-offset_top = -45.0
-offset_right = -16.0
-offset_bottom = -10.0
+offset_left = -137.0
+offset_top = -49.0
+offset_right = 10.0
+offset_bottom = -8.0
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 8
 text = "Psst!
-Arrow keys to move,
-z to attack!"
+Arrow keys/ D-Pad
+to move,
+'z'/ X to attack!"
 horizontal_alignment = 1
+autowrap_mode = 1
 
 [node name="Label2" type="Label" parent="Labels"]
-offset_left = 140.0
-offset_top = -142.0
-offset_right = 414.0
-offset_bottom = -107.0
+offset_left = 156.0
+offset_top = -112.0
+offset_right = 430.0
+offset_bottom = -77.0
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 8
 text = "You... A lonely Samurai must
@@ -185,27 +187,42 @@ located in the center of the city."
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Labels"]
-offset_left = 264.0
-offset_top = -460.0
-offset_right = 538.0
-offset_bottom = -425.0
+offset_left = 249.0
+offset_top = -403.0
+offset_right = 414.0
+offset_bottom = -359.0
+theme_override_colors/font_color = Color(0, 0, 0.792157, 1)
+theme_override_fonts/font = ExtResource("4_lbhrr")
+theme_override_font_sizes/font_size = 8
+text = "But remember, you are forging your path
+on your journey
+to become:"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Label18" type="Label" parent="Labels"]
+offset_left = 293.0
+offset_top = -283.0
+offset_right = 458.0
+offset_bottom = -253.0
 theme_override_colors/font_color = Color(0, 0, 0.792157, 1)
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 8
 text = "You will face hardship. That is a given.
-But remember, you are forging your path
-on your journey to become:"
+"
 horizontal_alignment = 1
+autowrap_mode = 1
 
 [node name="Label4" type="Label" parent="Labels"]
-offset_left = 552.0
-offset_top = -452.0
-offset_right = 828.0
-offset_bottom = -436.0
+offset_left = 393.0
+offset_top = -422.0
+offset_right = 669.0
+offset_bottom = -387.0
 theme_override_colors/font_color = Color(0.85098, 0.145098, 0, 1)
 theme_override_fonts/font = ExtResource("4_lbhrr")
 theme_override_font_sizes/font_size = 16
-text = "THE SAMURAI MASTER"
+text = "THE
+SAMURAI MASTER"
 horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="Labels"]
@@ -341,10 +358,10 @@ shall have no problem with this."
 horizontal_alignment = 1
 
 [node name="Label17" type="Label" parent="Labels"]
-offset_left = 4459.0
-offset_top = -223.0
-offset_right = 4658.0
-offset_bottom = -182.0
+offset_left = 4381.0
+offset_top = -194.0
+offset_right = 4580.0
+offset_bottom = -153.0
 theme_override_colors/font_color = Color(0.796078, 0.858824, 0.988235, 1)
 theme_override_fonts/font = ExtResource("7_vtaks")
 theme_override_font_sizes/font_size = 8

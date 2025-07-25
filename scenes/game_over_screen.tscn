@@ -16,39 +16,40 @@ offset_bottom = 682.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 274.0
-offset_top = 33.0
-offset_right = 826.0
-offset_bottom = 97.0
+offset_left = 41.0
+offset_top = 25.0
+offset_right = 593.0
+offset_bottom = 89.0
 theme_override_fonts/font = ExtResource("2_wa2qn")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 48
 text = "GAME OVER"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 97.0
-offset_top = 161.0
-offset_right = 1021.0
-offset_bottom = 368.0
+offset_left = 43.0
+offset_top = 97.0
+offset_right = 607.0
+offset_bottom = 339.0
 theme_override_fonts/font = ExtResource("3_cyfkl")
 theme_override_font_sizes/font_size = 32
 text = "You may think you have
 failed in becoming the
 Samurai Master.
-But the real failure comes
-from the choice of giving up or not...
+But the real failure
+comes from the choice
+of giving up or not...
 You must continue!"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 250.0
-offset_top = 440.0
-offset_right = 868.0
-offset_bottom = 532.0
+offset_left = 15.0
+offset_top = 380.0
+offset_right = 633.0
+offset_bottom = 472.0
 theme_override_fonts/font = ExtResource("3_cyfkl")
 theme_override_font_sizes/font_size = 32
-text = "Press \"R\" to restart.
-Press \"Q\" to quit."
+text = "Press \"R\"/ A  to restart.
+Press \"Q\"/ B to quit."
 horizontal_alignment = 1
 
 [node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
